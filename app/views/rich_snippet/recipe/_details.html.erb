@@ -1,0 +1,91 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: false %>
+
+<%= scrivito_details_for "Product attributes" do %>
+  <%= scrivito_details_for 'Prep time' do %>
+    <%= scrivito_tag :div, obj, :prep_time %>
+  <% end %>
+
+  <%= scrivito_details_for 'Total time' do %>
+    <%= scrivito_tag :div, obj, :total_time %>
+  <% end %>
+
+  <%= scrivito_details_for 'Cooking time' do %>
+    <%= scrivito_tag :div, obj, :cook_time %>
+  <% end %>
+
+  <%= scrivito_details_for 'Cooking method' do %>
+    <%= scrivito_tag :div, obj, :cooking_method %>
+  <% end %>
+
+  <%= scrivito_details_for 'Recipe yield <small>Number og portions</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :recipe_yield %>
+  <% end %>
+
+  <%= scrivito_details_for 'Recipe ingredients'.html_safe do %>
+    <%= scrivito_tag :div, obj, :recipe_ingredients %>
+  <% end %>
+
+  <%= scrivito_details_for 'Recipe cuisine' do %>
+    <%= scrivito_tag :div, obj, :recipe_cuisine %>
+  <% end %>
+
+  <%= scrivito_details_for 'Recipe category' do %>
+    <%= scrivito_tag :div, obj, :recipe_category %>
+  <% end %>
+
+  <%= scrivito_details_for 'Suitable for diet' do %>
+    <%= scrivito_tag :div, obj, :suitable_for_diet %>
+  <% end %>
+
+  <%= scrivito_details_for 'Recipe instructions' do %>
+    <%= scrivito_tag :div, obj, :recipe_instructions %>
+  <% end %>
+
+  <%= scrivito_details_for 'Author' do %>
+    <%= scrivito_tag :div, obj, :author, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Calories <small>in calories</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :calories %>
+  <% end %>
+
+  <%= scrivito_details_for 'Fat content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :fat_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Carbohydrate content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :carbohydrate_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Cholesterol content <small>in mg</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :cholesterol_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Fiber content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :fiber_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Protein content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :protein_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Saturated_fat content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :saturated_fat_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Serving size' do %>
+    <%= scrivito_tag :div, obj, :serving_size %>
+  <% end %>
+
+  <%= scrivito_details_for 'Sodium content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :sodium_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Sugar content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :sugar_content %>
+  <% end %>
+
+  <%= scrivito_details_for 'Trans fat content <small>in g</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :trans_fat_content %>
+  <% end %>
+<% end %>

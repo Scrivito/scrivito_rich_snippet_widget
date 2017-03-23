@@ -1,0 +1,11 @@
+<%= scrivito_large_dialog do %>
+  <%= scrivito_details_for 'Snippet' do %>
+    <%= scrivito_tag :div, widget, :snippet, data: {scrivito_editors_reload: true, scrivito_editors_filter_context: {rich_snippet_filter: 'all'}} %>
+  <% end %>
+
+  <% if widget.snippet %>
+    <%= scrivito_details_for "Data fo selected #{widget.module}" do %>
+      <%= render "#{widget.type}/details", obj: widget.snippet %>
+    <% end %>
+  <% end %>
+<% end %>

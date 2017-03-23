@@ -1,0 +1,39 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: true %>
+
+<%= scrivito_details_for "Event attributes" do %>
+  <%= scrivito_details_for 'Start date<small>This field is mandatory</small>'.html_safe do %>
+    <%= scrivito_tag :div, obj, :start_date  %>
+  <% end %>
+
+  <%= scrivito_details_for 'End date !' do %>
+    <%= scrivito_tag :div, obj, :end_date  %>
+  <% end %>
+
+  <%= scrivito_details_for 'In language' do %>
+    <%= scrivito_tag :div, obj, :in_language  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Organizer' do %>
+    <%= scrivito_tag :div, obj, :organizer, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Offers !' do %>
+    <%= scrivito_tag :div, obj, :offers, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Offer']}}  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Location *' do %>
+    <%= scrivito_tag :div, obj, :location, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Performers' do %>
+    <%= scrivito_tag :div, obj, :performers, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Sub events' do %>
+    <%= scrivito_tag :div, obj, :sub_events, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Event']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Super events' do %>
+    <%= scrivito_tag :div, obj, :super_event, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Event']}} %>
+  <% end %>
+<% end %>

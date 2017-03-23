@@ -1,0 +1,59 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: true %>
+
+<%= scrivito_details_for "Event attributes" do %>
+  <%= scrivito_details_for 'Base salery' do %>
+    <%= scrivito_tag :div, obj, :base_salary %>
+  <% end %>
+
+  <%= scrivito_details_for 'Date posted' do %>
+    <%= scrivito_tag :div, obj, :date_posted %>
+  <% end %>
+
+  <%= scrivito_details_for 'Education requirements' do %>
+    <%= scrivito_tag :div, obj, :education_requirements %>
+  <% end %>
+
+  <%= scrivito_details_for 'Employment type' do %>
+    <%= scrivito_tag :div, obj, :employment_type %>
+  <% end %>
+
+  <%= scrivito_details_for 'Experience requirements' do %>
+    <%= scrivito_tag :div, obj, :experience_requirements %>
+  <% end %>
+
+  <%= scrivito_details_for 'Hiring organization' do %>
+    <%= scrivito_tag :div, obj, :hiring_organization, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Job benefits' do %>
+    <%= scrivito_tag :div, obj, :job_benefits %>
+  <% end %>
+
+  <%= scrivito_details_for 'Job location' do %>
+    <%= scrivito_tag :div, obj, :job_location, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Qualifications' do %>
+    <%= scrivito_tag :div, obj, :qualifications %>
+  <% end %>
+
+  <%= scrivito_details_for 'Salary currency' do %>
+    <%= scrivito_tag :div, obj, :salary_currency %>
+  <% end %>
+
+  <%= scrivito_details_for 'Skills' do %>
+    <%= scrivito_tag :div, obj, :skills %>
+  <% end %>
+
+  <%= scrivito_details_for 'Job title' do %>
+    <%= scrivito_tag :div, obj, :job_title %>
+  <% end %>
+
+  <%= scrivito_details_for 'Valid through' do %>
+    <%= scrivito_tag :div, obj, :valid_through %>
+  <% end %>
+
+  <%= scrivito_details_for 'Work hours' do %>
+    <%= scrivito_tag :div, obj, :work_hours %>
+  <% end %>
+<% end %>

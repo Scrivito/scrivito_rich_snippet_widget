@@ -1,0 +1,39 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: true %>
+
+<%= scrivito_details_for "Organization attributes" do %>
+  <%= scrivito_details_for 'Address' do %>
+    <%= scrivito_tag :div, obj, :address, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Founder' do %>
+    <%= scrivito_tag :div, obj, :founder, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Founding date' do %>
+    <%= scrivito_tag :div, obj, :founding_date %>
+  <% end %>
+
+  <%= scrivito_details_for 'Legal name' do %>
+    <%= scrivito_tag :div, obj, :legal_name %>
+  <% end %>
+
+  <%= scrivito_details_for 'Logo' do %>
+    <%= scrivito_tag :div, obj, :logo, data: {scrivito_editors_filter_context: {image: true }} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Number of employees' do %>
+    <%= scrivito_tag :div, obj, :number_of_employees %>
+  <% end %>
+
+  <%= scrivito_details_for 'Parent organization' do %>
+    <%= scrivito_tag :div, obj, :parent_organization, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Sub organizations' do %>
+    <%= scrivito_tag :div, obj, :sub_organizations, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Telephone' do %>
+    <%= scrivito_tag :div, obj, :telephone %>
+  <% end %>
+<% end %>

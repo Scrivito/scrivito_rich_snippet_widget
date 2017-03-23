@@ -1,0 +1,79 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: false %>
+
+<%= scrivito_details_for "Person attributes" do %>
+  <%= scrivito_details_for 'Given name' do %>
+    <%= scrivito_tag :div, obj, :given_name %>
+  <% end %>
+
+  <%= scrivito_details_for 'Additional name' do %>
+    <%= scrivito_tag :div, obj, :additional_name %>
+  <% end %>
+
+  <%= scrivito_details_for 'Family name' do %>
+    <%= scrivito_tag :div, obj, :family_name %>
+  <% end %>
+
+  <%= scrivito_details_for 'Address' do %>
+    <%= scrivito_tag :div, obj, :address, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Birth date' do %>
+    <%= scrivito_tag :div, obj, :birth_date %>
+  <% end %>
+
+  <%= scrivito_details_for 'Birth place' do %>
+    <%= scrivito_tag :div, obj, :birth_place, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Death date' do %>
+    <%= scrivito_tag :div, obj, :death_date %>
+  <% end %>
+
+  <%= scrivito_details_for 'Death place' do %>
+    <%= scrivito_tag :div, obj, :death_place, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Children' do %>
+    <%= scrivito_tag :div, obj, :childs, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Gender' do %>
+    <%= scrivito_tag :div, obj, :gender %>
+  <% end %>
+
+  <%= scrivito_details_for 'Height' do %>
+    <%= scrivito_tag :div, obj, :height %>
+  <% end %>
+
+  <%= scrivito_details_for 'Nationality' do %>
+    <%= scrivito_tag :div, obj, :nationality %>
+  <% end %>
+
+  <%= scrivito_details_for 'mother' do %>
+    <%= scrivito_tag :div, obj, :mother, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Father' do %>
+    <%= scrivito_tag :div, obj, :father, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Siblings' do %>
+    <%= scrivito_tag :div, obj, :siblings, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Telephone' do %>
+    <%= scrivito_tag :div, obj, :telephone %>
+  <% end %>
+
+  <%= scrivito_details_for 'Weight' do %>
+    <%= scrivito_tag :div, obj, :weight %>
+  <% end %>
+
+  <%= scrivito_details_for 'Work location' do %>
+    <%= scrivito_tag :div, obj, :work_location, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['PostalAddress']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Works for' do %>
+    <%= scrivito_tag :div, obj, :works_for, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+  <% end %>
+<% end %>

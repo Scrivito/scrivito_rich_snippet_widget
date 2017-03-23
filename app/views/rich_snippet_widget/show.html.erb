@@ -1,0 +1,21 @@
+<% if scrivito_in_editable_view? %>
+  <div class="alert alert-info">
+    <strong>Rich Snippet Widget - Infos</strong>
+    <p>This is Widget has no visible view.</p>
+  </div>
+  <br>
+  <div class="alert alert-warning">
+    <strong>Rich Snippet Widget - Warnings</strong>
+    <ul>
+      <% widget.warnings.each do |w| %>
+        <li><%= w %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if widget.snippet %>
+  <script type="application/ld+json">
+    <%= raw(widget.to_json) %>
+  </script>
+<% end %>

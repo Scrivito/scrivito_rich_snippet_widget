@@ -1,0 +1,17 @@
+<%= scrivito_details_for "Base attributes" do %>
+  <%= scrivito_details_for 'Title' do %>
+    <%= scrivito_tag :div, obj, :title %>
+  <% end %>
+
+  <%= scrivito_details_for 'Description' do %>
+    <%= scrivito_tag :div, obj, :description %>
+  <% end %>
+
+  <%= scrivito_details_for 'Image' do %>
+    <%= scrivito_tag :div, obj, :image, data: {scrivito_editors_filter_context: {image: true}} %>
+  <% end %>
+
+  <%= scrivito_details_for "Url #{url_is_mandatory ? '*' : ''}" do %>
+    <%= scrivito_tag :div, obj, :url %>
+  <% end %>
+<% end %>

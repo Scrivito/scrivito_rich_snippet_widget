@@ -1,0 +1,55 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: true %>
+
+<%= scrivito_details_for "Product attributes" do %>
+  <%= scrivito_details_for 'Offers' do %>
+    <%= scrivito_tag :div, obj, :offers, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Offer']}}  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Brand' do %>
+    <%= scrivito_tag :div, obj, :brand, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}}  %>
+  <% end %>
+
+  <%= scrivito_details_for 'MPN' do %>
+    <%= scrivito_tag :div, obj, :mpn  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Awards' do %>
+    <%= scrivito_tag :div, obj, :awards %>
+  <% end %>
+
+  <%= scrivito_details_for 'Category' do %>
+    <%= scrivito_tag :div, obj, :category %>
+  <% end %>
+
+  <%= scrivito_details_for 'Color' do %>
+    <%= scrivito_tag :div, obj, :color %>
+  <% end %>
+
+  <%= scrivito_details_for 'Height' do %>
+    <%= scrivito_tag :div, obj, :height %>
+  <% end %>
+
+  <%= scrivito_details_for 'Width' do %>
+    <%= scrivito_tag :div, obj, :width %>
+  <% end %>
+
+  <%= scrivito_details_for 'Depth' do %>
+    <%= scrivito_tag :div, obj, :depth %>
+  <% end %>
+
+  <%= scrivito_details_for 'Weight' do %>
+    <%= scrivito_tag :div, obj, :weight %>
+  <% end %>
+
+  <%= scrivito_details_for 'Item condition' do %>
+    <%= scrivito_tag :div, obj, :item_condition %>
+  <% end %>
+
+  <%= scrivito_details_for 'Manufacturer' do %>
+    <%= scrivito_tag :div, obj, :manufacturer, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+  <% end %>
+
+  <%= scrivito_details_for 'Release date' do %>
+    <%= scrivito_tag :div, obj, :release_date %>
+  <% end %>
+<% end %>

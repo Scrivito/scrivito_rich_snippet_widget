@@ -1,0 +1,39 @@
+<%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: false %>
+
+<%= scrivito_details_for "Postal address attributes" do %>
+  <%= scrivito_details_for 'Country' do %>
+    <%= scrivito_tag :div, obj, :address_country  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Locality' do %>
+    <%= scrivito_tag :div, obj, :address_locality  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Region' do %>
+    <%= scrivito_tag :div, obj, :address_region  %>
+  <% end %>
+
+  <%= scrivito_details_for 'Post Office Box Number' do %>
+    <%= scrivito_tag :div, obj, :post_office_box_number %>
+  <% end %>
+
+  <%= scrivito_details_for 'Postal Code' do %>
+    <%= scrivito_tag :div, obj, :postal_code %>
+  <% end %>
+
+  <%= scrivito_details_for 'Street Address' do %>
+    <%= scrivito_tag :div, obj, :street_address %>
+  <% end %>
+
+  <%= scrivito_details_for 'Email' do %>
+    <%= scrivito_tag :div, obj, :email %>
+  <% end %>
+
+  <%= scrivito_details_for 'Phone' do %>
+    <%= scrivito_tag :div, obj, :telephone %>
+  <% end %>
+
+  <%= scrivito_details_for 'Fax' do %>
+    <%= scrivito_tag :div, obj, :fax_number %>
+  <% end %>
+<% end %>
