@@ -9,8 +9,8 @@ Array.prototype.unique = function() {
     return a;
 };
 
-function rich_snippet_filter(filter, app_types=[]) {
-  var types = ['Event', 'Offer', 'PostalAddress', 'Person', 'Organization', 'Product', 'Recipe', 'CreativeWork', 'JobPosting'].concat(app_types).unique();
+function rich_snippet_filter(filter, app_types) {
+  var types = ['Event', 'Offer', 'PostalAddress', 'Person', 'Organization', 'Product', 'Recipe', 'CreativeWork', 'JobPosting'].concat(app_types || []).unique();
 
   if(filter == undefined) {
     return rich_snippet_all_options(types);
@@ -19,7 +19,7 @@ function rich_snippet_filter(filter, app_types=[]) {
     return {
       '_obj_class': {
         'field': '_obj_class',
-        'options': rich_snippet_all_options(filter == 'all' ? types : filter.concat(app_types).unique())
+        'options': rich_snippet_all_options(filter == 'all' ? types : filter.concat(app_types || []).unique())
       }
     }
   }
