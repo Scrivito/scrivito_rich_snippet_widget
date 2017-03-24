@@ -1,5 +1,5 @@
 # ScrivitoRichSnippetWidget
-Add structured data to you page. Definitions are from https://schema.org
+Add structured data to you page. Definitions can be found at https://schema.org
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -13,13 +13,13 @@ And then execute:
 $ bundle
 ```
 
-To make the content browser filter available add this to your content browser filter js:
-
 Add this line to your JavaScript manifest **before** you load your content browser filter:
 
 ```js
 //= require scrivito_rich_snippet_widget
 ```
+
+Add this to your filters:
 
 ```js
 scrivito.content_browser.filters(filter) {
@@ -45,21 +45,27 @@ scrivito.content_browser.filters(filter) {
 
 ## Add your own types
 
-Create a modle at `/model/rich_snippet/new_type.rb` and add your attribute in this scheme:
+Create a modle at `/model/rich_snippet/new_type.rb` and add the attributes for this type:
 
 ```ruby
-module RichSnippets
+module RichSnippet
   class NewType < RichSnippet::Thing
     attribute my_attribute, :string
     attribute person, :refernce
     attribute children, :referencelist
     # ... more attributes
 
-    def to_json
+    def to_json(render_childs=false)
       {
+        "@context": "http://schema.org",
+        "@type": "NewType",
+        name: name,
+        description: description,
+        image: image ? image.binary_url : '',
+        url: url
         myAttribute: my_attribute,
-        person: person ? person.to_json : nil, # render the json for another rich snippet
-        children: array_json(children), # render an array of other rich snippets
+        person: person ? person.to_json : nil, # render the json for another rich snippet by calling its to_json method
+        children: array_json(children), # render an array of other rich snippets with this helper method
         # ... definition for more attributes
       }
     end
@@ -74,15 +80,17 @@ module RichSnippets
 end
 ```
 
-The create the details view. You need to files:
+The `render_childs` attribute in the `to_json` method can be used to prevent circles in the snippet definitions.
+
+Then create the details view. You need two files:
 
 ```ruby
-# add rich_snippet/new_type/details.html.erb
+# rich_snippet/new_type/details.html.erb
 <%= render 'rich_snippet/new_type/details', obj: @obj %>
 ```
 
 ```ruby
-# add rich_snippet/new_type/_details.html.erb
+# rich_snippet/new_type/_details.html.erb
 <%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: false %>
 
 <%= scrivito_details_for "Event attributes" do %>
@@ -109,7 +117,7 @@ In your contentbrowser filters, add the new types by using:
 ```js
 scrivito.content_browser.filters(filter) {
   if(filter.rich_snippet_filter) {
-    rich_snippet_filter(filter.rich_snippet_filter, ['NewType','AnotherType'])
+    rich_snippet_filter(filter.rich_snippet_filter, ['NewType'])
   } else if (your filters) {
     // ... add your filters here
   } else {
@@ -119,7 +127,7 @@ scrivito.content_browser.filters(filter) {
         rich_snippets: {
           title: 'Rich Snippets',
           options: {
-            rich_snippet_filter(undefined, ['NewType','AnotherType'])
+            rich_snippet_filter(undefined, ['NewType'])
           }
         }
       }
