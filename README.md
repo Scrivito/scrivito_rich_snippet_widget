@@ -34,7 +34,7 @@ scrivito.content_browser.filters(filter) {
         rich_snippets: {
           title: 'Rich Snippets',
           options: {
-            rich_snippet_filter()
+            rich_snippet_filter(undefined)
           }
         }
       }
