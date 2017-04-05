@@ -1,6 +1,6 @@
 module RichSnippet
   class CreativeWork < Thing
-    attribute :work_type, :enum, values: ['Book','Game','Movie','Photograph','Painting','Serie','WebPage','MusicComposition']
+    attribute :work_type, :enum, values: ['Book','Game','Movie','Photograph','Painting','Serie','WebPage','MusicComposition','SoftwareSourceCode']
     attribute :about, :string
     attribute :author, :reference
     attribute :contributor, :reference
@@ -19,6 +19,9 @@ module RichSnippet
     attribute :publisher, :reference
     attribute :thumbnail_url, :string
     attribute :typical_age_range, :string
+    attribute :code_repository, :string
+    attribute :programming_language, :string
+    attribute :runtime_platform, :string
 
     #Book
     attribute :illustrator, :reference
@@ -41,7 +44,7 @@ module RichSnippet
     def to_json(render_childs = false)
       json = {
         "@context": "http://schema.org",
-        "@type": "CreativeWork",
+        "@type": work_type.presence || "CreativeWork",
         name: name,
         description: description,
         image: image ? image.binary_url : nil,
@@ -63,7 +66,7 @@ module RichSnippet
         position: position,
         publisher: publisher ? publisher.to_json : nil,
         thumbnailUrl: thumbnail_url,
-        typicalAgeRange: typical_age_range,
+        typicalAgeRange: typical_age_range
       }
 
       if work_type == 'Book'
@@ -80,6 +83,10 @@ module RichSnippet
         json[:composer] = composer ? composer.to_json : nil
         json[:lyricist] = lyricist ? lyricist.to_json : nil
         json[:lyrics] = lyrics
+      elsif work_type == 'SoftwareSourceCode'
+        json[:codeRepository]= code_repository
+        json[:programmingLanguage]= programming_language
+        json[:runtimePlatform]= runtime_platform
       end
 
       return json.delete_if { |k, v| !v.present? }

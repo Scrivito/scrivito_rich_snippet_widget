@@ -1,116 +1,116 @@
 <%= render 'rich_snippet/thing/details', obj: obj, url_is_mandatory: false %>
 
-<%= scrivito_details_for "Event attributes" do %>
+<%= scrivito_details_for "Creative work attributes" do %>
   <%= scrivito_details_for 'Type' do %>
     <%= scrivito_tag :div, obj, :work_type, data: {scrivito_editors_reload: true} %>
   <% end %>
 
-  <%= scrivito_details_for 'about' do %>
+  <%= scrivito_details_for 'About' do %>
     <%= scrivito_tag :div, obj, :about %>
   <% end %>
 
-  <%= scrivito_details_for 'author' do %>
+  <%= scrivito_details_for 'Author' do %>
     <%= scrivito_tag :div, obj, :author, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organizazion']}} %>
   <% end %>
 
-  <%= scrivito_details_for 'contributor' do %>
+  <%= scrivito_details_for 'Contributor' do %>
     <%= scrivito_tag :div, obj, :contributor, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
   <% end %>
 
-  <%= scrivito_details_for 'copyright_holder' do %>
+  <%= scrivito_details_for 'Copyright holder' do %>
     <%= scrivito_tag :div, obj, :copyright_holder, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
   <% end %>
 
-  <%= scrivito_details_for 'copyright_year' do %>
+  <%= scrivito_details_for 'Copyright year' do %>
     <%= scrivito_tag :div, obj, :copyright_year %>
   <% end %>
 
-  <%= scrivito_details_for 'date_created' do %>
+  <%= scrivito_details_for 'Date created' do %>
     <%= scrivito_tag :div, obj, :date_created %>
   <% end %>
 
-  <%= scrivito_details_for 'date_published' do %>
+  <%= scrivito_details_for 'Date published' do %>
     <%= scrivito_tag :div, obj, :date_published %>
   <% end %>
 
-  <%= scrivito_details_for 'genre' do %>
+  <%= scrivito_details_for 'Genre' do %>
     <%= scrivito_tag :div, obj, :genre %>
   <% end %>
 
-  <%= scrivito_details_for 'in_language' do %>
+  <%= scrivito_details_for 'In language' do %>
     <%= scrivito_tag :div, obj, :in_language %>
   <% end %>
 
-  <%= scrivito_details_for 'is_accessible_for_free' do %>
+  <%= scrivito_details_for 'Is accessible for free' do %>
     <%= scrivito_tag :div, obj, :is_accessible_for_free %>
   <% end %>
 
-  <%= scrivito_details_for 'is_based_on' do %>
+  <%= scrivito_details_for 'Is based on' do %>
     <%= scrivito_tag :div, obj, :is_based_on, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['CreativeWork']}} %>
   <% end %>
 
-  <%= scrivito_details_for 'is_family_friendly' do %>
+  <%= scrivito_details_for 'Is family friendly' do %>
     <%= scrivito_tag :div, obj, :is_family_friendly %>
   <% end %>
 
-  <%= scrivito_details_for 'license' do %>
+  <%= scrivito_details_for 'License' do %>
     <%= scrivito_tag :div, obj, :license %>
   <% end %>
 
-  <%= scrivito_details_for 'offers' do %>
+  <%= scrivito_details_for 'Offers' do %>
     <%= scrivito_tag :div, obj, :offers, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Offer']}} %>
   <% end %>
 
-  <%= scrivito_details_for 'position' do %>
+  <%= scrivito_details_for 'Position' do %>
     <%= scrivito_tag :div, obj, :position %>
   <% end %>
 
-  <%= scrivito_details_for 'publisher' do %>
+  <%= scrivito_details_for 'Publisher' do %>
     <%= scrivito_tag :div, obj, :publisher, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
   <% end %>
 
-  <%= scrivito_details_for 'thumbnail_url' do %>
+  <%= scrivito_details_for 'Thumbnail url' do %>
     <%= scrivito_tag :div, obj, :thumbnail_url %>
   <% end %>
 
-  <%= scrivito_details_for 'typical_age_range' do %>
+  <%= scrivito_details_for 'Typical age range' do %>
     <%= scrivito_tag :div, obj, :typical_age_range %>
   <% end %>
 
   <% if obj.work_type == 'Book' %>
-    <%= scrivito_details_for "Event attributes" do %>
-      <%= scrivito_details_for 'illustrator' do %>
+    <%= scrivito_details_for "Book attributes" do %>
+      <%= scrivito_details_for 'Illustrator' do %>
         <%= scrivito_tag :div, obj, :illustrator, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
       <% end %>
 
-      <%= scrivito_details_for 'isbn' do %>
+      <%= scrivito_details_for 'Isbn' do %>
         <%= scrivito_tag :div, obj, :isbn %>
       <% end %>
 
-      <%= scrivito_details_for 'number_of_page' do %>
+      <%= scrivito_details_for 'Number of pages' do %>
         <%= scrivito_tag :div, obj, :number_of_page %>
       <% end %>
     <% end %>
   <% end %>
 
   <% if obj.work_type == 'Movie' %>
-    <%= scrivito_details_for "Event attributes" do %>
-      <%= scrivito_details_for 'actors' do %>
+    <%= scrivito_details_for "Movie attributes" do %>
+      <%= scrivito_details_for 'Actors' do %>
         <%= scrivito_tag :div, obj, :actors, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
       <% end %>
 
-      <%= scrivito_details_for 'director' do %>
+      <%= scrivito_details_for 'Director' do %>
         <%= scrivito_tag :div, obj, :director, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
       <% end %>
 
-      <%= scrivito_details_for 'duration' do %>
+      <%= scrivito_details_for 'Duration' do %>
         <%= scrivito_tag :div, obj, :duration %>
       <% end %>
     <% end %>
   <% end %>
 
   <% if obj.work_type == 'WebPage' %>
-    <%= scrivito_details_for "Event attributes" do %>
+    <%= scrivito_details_for "Web page attributes" do %>
       <%= scrivito_details_for 'breadcrumb' do %>
         <%= scrivito_tag :div, obj, :breadcrumb %>
       <% end %>
@@ -118,17 +118,33 @@
   <% end %>
 
   <% if obj.work_type == 'MusicComposition' %>
-    <%= scrivito_details_for "Event attributes" do %>
-      <%= scrivito_details_for 'composer' do %>
+    <%= scrivito_details_for "Musci composition attributes" do %>
+      <%= scrivito_details_for 'Composer' do %>
         <%= scrivito_tag :div, obj, :composer, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
       <% end %>
 
-      <%= scrivito_details_for 'lyricist' do %>
+      <%= scrivito_details_for 'Lyricist' do %>
         <%= scrivito_tag :div, obj, :lyricist, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person']}} %>
       <% end %>
 
-      <%= scrivito_details_for 'lyrics' do %>
+      <%= scrivito_details_for 'Lyrics' do %>
         <%= scrivito_tag :div, obj, :lyrics %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if obj.work_type == 'SoftwareSourceCode' %>
+    <%= scrivito_details_for "Software source code attributes" do %>
+      <%= scrivito_details_for 'Programming language' do %>
+        <%= scrivito_tag :div, obj, :programming_language %>
+      <% end %>
+
+      <%= scrivito_details_for 'Code repository' do %>
+        <%= scrivito_tag :div, obj, :code_repository %>
+      <% end %>
+
+      <%= scrivito_details_for 'Runtime platform' do %>
+        <%= scrivito_tag :div, obj, :runtime_platform %>
       <% end %>
     <% end %>
   <% end %>
