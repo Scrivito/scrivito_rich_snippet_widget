@@ -8,7 +8,7 @@
   <% end %>
 
   <%= scrivito_details_for 'Image' do %>
-    <%= scrivito_tag :div, obj, :image, data: {scrivito_editors_filter_context: {image: true}} %>
+    <%= scrivito_tag :div, obj, :image, data: {scrivito_editors_filter_context: {_image: true}} %>
   <% end %>
 
   <%= scrivito_details_for "Url #{url_is_mandatory ? '*' : ''}" do %>

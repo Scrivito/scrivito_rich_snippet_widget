@@ -26,10 +26,10 @@
   <% end %>
 
   <%= scrivito_details_for 'Inventory level' do %>
-    <%= scrivito_tag :div, obj, :inventory_level, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+    <%= scrivito_tag :div, obj, :inventory_level %>
   <% end %>
 
   <%= scrivito_details_for 'Seller' do %>
-    <%= scrivito_tag :div, obj, :seller, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Organization']}} %>
+    <%= scrivito_tag :div, obj, :seller, data: {scrivito_editors_filter_context: {rich_snippet_filter: ['Person', 'Organization']}} %>
   <% end %>
 <% end %>
