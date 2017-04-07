@@ -24,17 +24,20 @@ Add this to your filters:
 ```js
 scrivito.content_browser.filters(filter) {
   if(filter.rich_snippet_filter) {
-    rich_snippet_filter(filter.rich_snippet_filter)
+    _obj_class: {
+      field: '_obj_class'
+      options: { rich_snippet_filter(filter.rich_snippet_filter) }
+    }
   } else if (your filters) {
-    // ... add your filters here
+    // ... add your special filters here
   } else {
     '_obj_class': {
       options: {
-        // ... add your type defs here
+        // ... add your standard filters here
         rich_snippets: {
           title: 'Rich Snippets',
           options: {
-            rich_snippet_filter(undefined)
+            rich_snippet_filter('all')
           }
         }
       }

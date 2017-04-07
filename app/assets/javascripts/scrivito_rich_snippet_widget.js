@@ -12,17 +12,7 @@ Array.prototype.unique = function() {
 function rich_snippet_filter(filter, app_types) {
   var types = ['Event', 'Offer', 'PostalAddress', 'Person', 'Organization', 'Product', 'Recipe', 'CreativeWork', 'JobPosting'].concat(app_types || []).unique();
 
-  if(filter == undefined) {
-    return rich_snippet_all_options(types);
-  }
-  else {
-    return {
-      '_obj_class': {
-        'field': '_obj_class',
-        'options': rich_snippet_all_options(filter == 'all' ? types : filter.concat(app_types || []).unique())
-      }
-    }
-  }
+  return rich_snippet_all_options(filter == 'all' ? types : filter);
 }
 
 function rich_snippet_all_options(types) {
