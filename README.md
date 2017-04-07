@@ -118,18 +118,18 @@ In your contentbrowser filters, add the new types by using:
 ```js
 scrivito.content_browser.filters(filter) {
   if(filter.rich_snippet_filter) {
-    rich_snippet_filter(filter.rich_snippet_filter, ['NewType'])
+    '_obj_class': {
+      'field': '_obj_class'
+      'options': { rich_snippet_filter(filter.rich_snippet_filter, ['NewType']) }
   } else if (your filters) {
-    // ... add your filters here
+    // ... add your special filters here
   } else {
     '_obj_class': {
-      options: {
-        // ... add your type defs here
-        rich_snippets: {
-          title: 'Rich Snippets',
-          options: {
-            rich_snippet_filter(undefined, ['NewType'])
-          }
+      'options': {
+        // ... add your standard filters here
+        'rich_snippets': {
+          'title': 'Rich Snippets',
+          'options': { rich_snippet_filter('all', ['NewType']) }
         }
       }
     }
