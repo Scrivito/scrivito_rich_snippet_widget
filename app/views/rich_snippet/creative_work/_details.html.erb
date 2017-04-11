@@ -149,4 +149,22 @@
     <% end %>
   <% end %>
 
+  <% if obj.work_type == 'Review' || obj.work_type == 'ClaimReview' %>
+    <%= scrivito_details_for "Review attributes" do %>
+      <% if obj.work_type == 'ClaimReview' %>
+        <%= scrivito_details_for 'Claim reviewed' do %>
+          <%= scrivito_tag :div, obj, :claim_reviewed %>
+        <% end %>
+      <% end %>
+
+      <%= scrivito_details_for 'Item reviewed' do %>
+        <%= scrivito_tag :div, obj, :item_reviewed, data: {scrivito_editors_filter_context: {rich_snippet_filter: 'all'}} %>
+      <% end %>
+
+      <%= scrivito_details_for 'Review body' do %>
+        <%= scrivito_tag :div, obj, :review_body %>
+      <% end %>
+    <% end %>
+  <% end %>
+
 <% end %>

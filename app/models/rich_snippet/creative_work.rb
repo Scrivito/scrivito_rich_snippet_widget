@@ -1,6 +1,6 @@
 module RichSnippet
   class CreativeWork < Thing
-    attribute :work_type, :enum, values: ['Book','Game','Movie','Photograph','Painting','Serie','WebPage','MusicComposition','SoftwareSourceCode']
+    attribute :work_type, :enum, values: ['Book','Game','Movie','Photograph','Painting','Serie','WebPage','MusicComposition','SoftwareSourceCode', 'Review', 'ClaimReview']
     attribute :about, :string
     attribute :author, :reference
     attribute :contributor, :reference
@@ -40,6 +40,11 @@ module RichSnippet
     attribute :composer, :reference
     attribute :lyricist, :reference
     attribute :lyrics, :string
+
+    #ClaimReview
+    attribute :claim_reviewed, :string
+    attribute :item_reviewed, :reference
+    attribute :review_body, :string
 
     def to_json(render_childs = false)
       json = {
@@ -87,6 +92,13 @@ module RichSnippet
         json[:codeRepository]= code_repository
         json[:programmingLanguage]= programming_language
         json[:runtimePlatform]= runtime_platform
+      elsif work_type == 'Review'
+        json[:itemReviewed]= item_reviewed ? item_reviewed.to_json : nil
+        json[:reviewBody]= review_body
+      elsif work_type == 'ClaimReview'
+        json[:claimReviewed]= claim_reviewed
+        json[:itemReviewed]= item_reviewed ? item_reviewed.to_json : nil
+        json[:reviewBody]= review_body
       end
 
       return json.delete_if { |k, v| !v.present? }
