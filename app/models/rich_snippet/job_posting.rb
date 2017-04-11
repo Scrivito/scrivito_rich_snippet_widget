@@ -3,7 +3,7 @@ module RichSnippet
     attribute :base_salary, :integer
     attribute :date_posted, :date
     attribute :education_requirements, :string
-    attribute :employment_type, :enum, values: %w(full-time part-time contract temporary seasonal internship)
+    attribute :employment_type, :enum, values: ['full-time', 'part-time', 'contract', 'temporary', 'seasonal', 'internship']
     attribute :experience_requirements, :string
     attribute :hiring_organization, :reference
     attribute :job_benefits, :string
