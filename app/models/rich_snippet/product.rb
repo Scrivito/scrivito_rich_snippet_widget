@@ -19,7 +19,7 @@ module RichSnippet
         "@context": "http://schema.org/",
         "@type": "Product",
         name: name,
-        image: image,
+        image: image ? image.binary_url : '',
         description: description,
         mpn: mpn,
         award: awards,
